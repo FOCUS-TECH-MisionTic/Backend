@@ -18,7 +18,7 @@ const conectarBD = (callback) => {
       console.error('Error conectando a la base de datos');
       return 'error';
     }
-    baseDeDatos = db.db('concesionario');
+    baseDeDatos = db.db('focus-tech');
     console.log('baseDeDatos exitosa');
     return callback();
   });
