@@ -18,16 +18,16 @@ const genercCallback = (res) => (err, result) => {
 };
 
 rutasUsuario.route('/usuarios').get((req, res) => {
-  console.log('alguien hizo get en la ruta /usuarios');
+  console.log('Get en la ruta /usuarios');
   queryAllUsers(genercCallback(res));
 });
 
-rutasUsuario.route('/usuarios').post((req, res) => {
+rutasUsuario.route('/usuarios/').post((req, res) => {
   crearUsuario(req.body, genercCallback(res));
 });
 
 rutasUsuario.route('/usuarios/:id').get((req, res) => {
-  console.log('alguien hizo get en la ruta /usuarios');
+  console.log('Get en la ruta /usuarios');
   consultarUsuario(req.params.id, genercCallback(res));
 });
 

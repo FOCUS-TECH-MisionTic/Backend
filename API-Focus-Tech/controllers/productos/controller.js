@@ -8,16 +8,14 @@ const queryAllProducts = async (callback) => {
 
 const crearProducto = async (datosProducto, callback) => {
   if (
-    Object.keys(datosProducto).includes('codigo') &&
     Object.keys(datosProducto).includes('producto') &&
     Object.keys(datosProducto).includes('modelo') &&
     Object.keys(datosProducto).includes('nucleos') &&
     Object.keys(datosProducto).includes('frecuencia') &&
-    Object.keys(datosProducto).includes('stock') &&
     Object.keys(datosProducto).includes('precio')
   ) {
     const baseDeDatos = getDB();
-    // implementar código para crear Productos en la BD
+    // Código para crear Productos en la BD
     await baseDeDatos.collection('Productos').insertOne(datosProducto, callback);
   } else {
     return 'error';
@@ -37,7 +35,7 @@ const editarProducto = async (id, edicion, callback) => {
   const baseDeDatos = getDB();
   await baseDeDatos
     .collection('Productos')
-    .findOneAndUpdate(filtroProducto, operacion, { upsert: true, returnOriginal: true }, callback);
+    .findOneAndUpdate(filtroProducto, operacion, { upsert: true, returnOriginal: true}, callback);
 };
 
 const eliminarProducto = async (id, callback) => {

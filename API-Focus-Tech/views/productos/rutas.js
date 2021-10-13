@@ -18,7 +18,7 @@ const genercCallback = (res) => (err, result) => {
 };
 
 rutasProducto.route('/productos').get((req, res) => {
-  console.log('alguien hizo get en la ruta /productos');
+  console.log('Get en la ruta /productos');
   queryAllProducts(genercCallback(res));
 });
 
@@ -27,7 +27,7 @@ rutasProducto.route('/productos').post((req, res) => {
 });
 
 rutasProducto.route('/productos/:id').get((req, res) => {
-  console.log('alguien hizo get en la ruta /productos');
+  console.log('Get en la ruta /productos');
   consultarProducto(req.params.id, genercCallback(res));
 });
 

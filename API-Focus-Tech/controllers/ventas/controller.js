@@ -8,8 +8,21 @@ const queryAllSales = async (callback) => {
 };
 
 const crearVenta = async (datosVenta, callback) => {
-  const baseDeDatos = getDB();
-  await baseDeDatos.collection('Ventas').insertOne(datosVenta, callback);
+  if (
+    Object.keys(datosVenta).includes('fecha') &&
+    Object.keys(datosVenta).includes('producto') &&
+    Object.keys(datosVenta).includes('cantidad') &&
+    Object.keys(datosVenta).includes('cliente') &&
+    Object.keys(datosVenta).includes('vendedor') &&
+    Object.keys(datosVenta).includes('estado') &&
+    Object.keys(datosVenta).includes('total')
+  ) {
+    const baseDeDatos = getDB();
+    // Código para crear Productos en la BD
+    await baseDeDatos.collection('Ventas').insertOne(datosVenta, callback);
+  } else {
+    return 'error';
+  }
 };
 
 const consultarVenta = async (id, callback) => {
