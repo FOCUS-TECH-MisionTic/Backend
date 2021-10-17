@@ -26,6 +26,11 @@ rutasUsuario.route('/usuarios/').post((req, res) => {
   crearUsuario(req.body, genercCallback(res));
 });
 
+rutasUsuario.route('/usuarios/self').get((req, res) => {
+  console.log('Get en la ruta /usuarios/self');
+  // // consultarUsuario(req.params.id, genercCallback(res));
+});
+
 rutasUsuario.route('/usuarios/:id').get((req, res) => {
   console.log('Get en la ruta /usuarios');
   consultarUsuario(req.params.id, genercCallback(res));
