@@ -5,6 +5,7 @@ import {
   editarUsuario,
   eliminarUsuario,
   consultarUsuario,
+  consultarOCrearUsuario,
 } from '../../controllers/usuarios/controller.js';
 
 const rutasUsuario = Express.Router();
@@ -28,7 +29,7 @@ rutasUsuario.route('/usuarios/').post((req, res) => {
 
 rutasUsuario.route('/usuarios/self').get((req, res) => {
   console.log('Get en la ruta /usuarios/self');
-  // // consultarUsuario(req.params.id, genercCallback(res));
+  consultarOCrearUsuario(req, genercCallback(res));
 });
 
 rutasUsuario.route('/usuarios/:id').get((req, res) => {
