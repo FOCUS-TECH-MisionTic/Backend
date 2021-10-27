@@ -34,7 +34,7 @@ algorithms: ['RS256']
 
 app.use(jwtCheck);
 
-// app.use(autorizacionEstadoUsuario);
+app.use(autorizacionEstadoUsuario);
 
 app.use(rutasProducto);
 app.use(rutasUsuario);
