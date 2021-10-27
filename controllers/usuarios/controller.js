@@ -7,22 +7,6 @@ const queryAllUsers = async (callback) => {
   await baseDeDatos.collection('Usuarios').find({}).limit(50).toArray(callback);
 };
 
-// const crearUsuario = async (datosUsuario, callback) => {
-//   if (
-    
-//     Object.keys(datosUsuario).includes('nombre') &&
-//     Object.keys(datosUsuario).includes('apellido') &&
-//     Object.keys(datosUsuario).includes('correo') &&
-//     Object.keys(datosUsuario).includes('rol') &&
-//     Object.keys(datosUsuario).includes('estado')
-//   ) {
-//     const baseDeDatos = getDB();
-//     await baseDeDatos.collection('Usuarios').insertOne(datosUsuario, callback);
-//   } else {
-//     return 'error';
-//   }
-// };
-
 const crearUsuario = async (datosUsuario, callback) => {
   const baseDeDatos = getDB();
   await baseDeDatos.collection('Usuarios').insertOne(datosUsuario, callback);
@@ -36,8 +20,9 @@ const consultarUsuario = async (id, callback) => {
 const consultarOCrearUsuario = async (req, callback) => {
   // 6.1. obtener los datos del usuario desde el token
   const token = req.headers.authorization.split('Bearer ')[1];
-  const user = jwt_decode(token)['http://localhost/userData'];
-  console.log(user);
+  console.log('token', jwt_decode(token));
+  const user = jwt_decode(token)['http://localhost//userData'];
+  console.log('Datos Usuario', user);
 
   // 6.2. con el correo del usuario o con el id de auth0, verificar si el usuario ya esta en la bd o no
   const baseDeDatos = getDB();

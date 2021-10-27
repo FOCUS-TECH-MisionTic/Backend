@@ -1,8 +1,7 @@
 import { MongoClient } from 'mongodb';
 import dotenv from 'dotenv';
 
-dotenv.config({ path: '../.env' });
-const port = process.env.PORT || 5000;
+dotenv.config({ path: './.env' });
 
 const stringConexion = process.env.DATABASE_URL;
 
