@@ -33,11 +33,11 @@ const consultarUsuario = async (id, callback) => {
   await baseDeDatos.collection('Usuarios').findOne({ _id: new ObjectId(id) }, callback);
 };
 
-// const consultarOCrearUsuario = async (req, callback) => {
-//   // 6.1. obtener los datos del usuario desde el token
-//   const token = req.headers.authorization.split('Bearer ')[1];
-//   const user = jwt_decode(token)['https://protected-chamber-18695.herokuapp.com/userData'];
-//   console.log(user);
+const consultarOCrearUsuario = async (req, callback) => {
+  // 6.1. obtener los datos del usuario desde el token
+  const token = req.headers.authorization.split('Bearer ')[1];
+  const user = jwt_decode(token)['https://protected-chamber-18695.herokuapp.com/userData'];
+  console.log(user);
 
   // 6.2. con el correo del usuario o con el id de auth0, verificar si el usuario ya esta en la bd o no
   const baseDeDatos = getDB();

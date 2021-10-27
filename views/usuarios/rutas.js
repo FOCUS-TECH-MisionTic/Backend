@@ -27,10 +27,10 @@ rutasUsuario.route('/usuarios/').post((req, res) => {
   crearUsuario(req.body, genercCallback(res));
 });
 
-// rutasUsuario.route('/usuarios/self').get((req, res) => {
-//   console.log('Get en la ruta /usuarios/self');
-//   consultarOCrearUsuario(req, genercCallback(res));
-// });
+rutasUsuario.route('/usuarios/self').get((req, res) => {
+  console.log('Get en la ruta /usuarios/self');
+  consultarOCrearUsuario(req, genercCallback(res));
+});
 
 rutasUsuario.route('/usuarios/:id').get((req, res) => {
   console.log('Get en la ruta /usuarios');
